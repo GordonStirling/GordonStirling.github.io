@@ -26,22 +26,20 @@
       box-sizing: border-box;
     }
 
-    html {
-      scroll-behavior: smooth;
-    }
-
     body {
       margin: 0;
       background: var(--background);
       color: var(--text);
       font-family: "IBM Plex Sans", sans-serif;
-      line-height: 1.6;
     }
 
     .site {
       max-width: 1080px;
+      min-height: 100vh;
       margin: 0 auto;
-      padding: 38px 48px 70px;
+      padding: 38px 48px 52px;
+      display: flex;
+      flex-direction: column;
     }
 
     header {
@@ -77,15 +75,23 @@
       color: var(--text);
     }
 
+    main {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 72px 0;
+    }
+
     .intro {
-      padding: 72px 0 78px;
-      max-width: 760px;
+      max-width: 780px;
+      margin-bottom: 70px;
     }
 
     .intro h1 {
-      margin: 0 0 18px;
+      margin: 0 0 20px;
       font-family: "Barlow Condensed", sans-serif;
-      font-size: clamp(50px, 7vw, 84px);
+      font-size: clamp(52px, 7vw, 86px);
       font-weight: 500;
       line-height: 0.95;
       letter-spacing: 0.01em;
@@ -94,65 +100,67 @@
 
     .intro p {
       margin: 0;
-      max-width: 640px;
-      font-size: 19px;
+      max-width: 620px;
       color: var(--muted);
+      font-size: 19px;
       line-height: 1.55;
     }
 
-    section {
-      padding: 52px 0;
+    .sections {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
       border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
     }
 
-    .section-label {
-      margin-bottom: 30px;
+    .sections a {
+      padding: 28px 20px 30px 0;
+      color: var(--text);
+      text-decoration: none;
+      border-right: 1px solid var(--line);
+    }
+
+    .sections a:last-child {
+      border-right: none;
+      padding-left: 20px;
+    }
+
+    .sections a:nth-child(2) {
+      padding-left: 20px;
+    }
+
+    .section-number {
+      display: block;
+      margin-bottom: 14px;
       font-family: "IBM Plex Mono", monospace;
-      font-size: 12px;
-      font-weight: 500;
+      font-size: 11px;
       color: var(--muted);
-      text-transform: uppercase;
       letter-spacing: 0.08em;
     }
 
-    .series {
-      max-width: 760px;
-      margin-bottom: 34px;
-    }
-
-    .series:last-child {
-      margin-bottom: 0;
-    }
-
-    .series h2 {
-      margin: 0 0 6px;
+    .section-title {
       font-family: "Barlow Condensed", sans-serif;
-      font-size: 36px;
+      font-size: 34px;
       font-weight: 500;
       line-height: 1;
       letter-spacing: 0.02em;
       text-transform: uppercase;
     }
 
-    .series p {
-      margin: 0;
+    .sections a:hover .section-title {
       color: var(--muted);
-      font-size: 17px;
-      line-height: 1.55;
     }
 
     footer {
-      padding-top: 38px;
-      border-top: 1px solid var(--line);
+      padding-top: 28px;
       font-family: "IBM Plex Mono", monospace;
       font-size: 12px;
       color: var(--muted);
-      letter-spacing: 0.03em;
     }
 
     @media (max-width: 700px) {
       .site {
-        padding: 26px 22px 50px;
+        padding: 26px 22px 36px;
       }
 
       header {
@@ -164,20 +172,34 @@
         gap: 18px;
       }
 
+      main {
+        justify-content: flex-start;
+        padding: 64px 0;
+      }
+
       .intro {
-        padding: 58px 0 64px;
+        margin-bottom: 54px;
       }
 
       .intro h1 {
-        font-size: clamp(46px, 14vw, 68px);
+        font-size: clamp(48px, 14vw, 68px);
       }
 
-      section {
-        padding: 42px 0;
+      .sections {
+        display: block;
       }
 
-      .series h2 {
-        font-size: 32px;
+      .sections a,
+      .sections a:nth-child(2),
+      .sections a:last-child {
+        display: block;
+        padding: 24px 0;
+        border-right: none;
+        border-bottom: 1px solid var(--line);
+      }
+
+      .sections a:last-child {
+        border-bottom: none;
       }
     }
   </style>
@@ -191,9 +213,9 @@
       <div class="name">Gordon Stirling</div>
 
       <nav>
-        <a href="#writing">Writing</a>
-        <a href="#research">Research</a>
-        <a href="#about">About</a>
+        <a href="writing.html">Writing</a>
+        <a href="research.html">Research</a>
+        <a href="about.html">About</a>
       </nav>
     </header>
 
@@ -208,45 +230,24 @@
         </p>
       </div>
 
-      <section id="writing">
-        <div class="section-label">Writing</div>
+      <div class="sections">
 
-        <div class="series">
-          <h2>Adding Value as a Data Practitioner</h2>
-          <p>
-            A series exploring how data practitioners create value in the real world.
-          </p>
-        </div>
+        <a href="writing.html">
+          <span class="section-number">01</span>
+          <span class="section-title">Writing</span>
+        </a>
 
-        <div class="series">
-          <h2>Reflections</h2>
-          <p>
-            Short observations and reflections from practice.
-          </p>
-        </div>
-      </section>
+        <a href="research.html">
+          <span class="section-number">02</span>
+          <span class="section-title">Research</span>
+        </a>
 
-      <section id="research">
-        <div class="section-label">Research</div>
+        <a href="about.html">
+          <span class="section-number">03</span>
+          <span class="section-title">About</span>
+        </a>
 
-        <div class="series">
-          <h2>Research</h2>
-          <p>
-            Research interests, projects and publications.
-          </p>
-        </div>
-      </section>
-
-      <section id="about">
-        <div class="section-label">About</div>
-
-        <div class="series">
-          <p>
-            Practitioner, researcher and writer working at the intersection of
-            data, performance and decision-making.
-          </p>
-        </div>
-      </section>
+      </div>
 
     </main>
 
