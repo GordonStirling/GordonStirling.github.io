@@ -10,16 +10,17 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
   <link
-    href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500&display=swap"
+    href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500&family=IBM+Plex+Sans+Condensed:wght@400;500;600&display=swap"
     rel="stylesheet"
   >
 
   <style>
     :root {
-      --background: #171717;
-      --text: #f2f0eb;
+      --background: #0f0f0f;
+      --text: #f3f1ec;
       --muted: #aaa7a1;
-      --line: #343434;
+      --nav: #d8d5cf;
+      --line: #2b2b2b;
     }
 
     * {
@@ -54,7 +55,8 @@
       font-family: "IBM Plex Mono", monospace;
       font-size: 15px;
       font-weight: 500;
-      letter-spacing: 0.01em;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
     }
 
     nav {
@@ -65,7 +67,7 @@
     nav a {
       font-family: "IBM Plex Mono", monospace;
       font-size: 13px;
-      color: var(--muted);
+      color: var(--nav);
       text-decoration: none;
       text-transform: uppercase;
       letter-spacing: 0.04em;
@@ -84,17 +86,17 @@
     }
 
     .intro {
-      max-width: 780px;
-      margin-bottom: 70px;
+      max-width: 820px;
+      margin-bottom: 68px;
     }
 
     .intro h1 {
-      margin: 0 0 20px;
-      font-family: "Barlow Condensed", sans-serif;
-      font-size: clamp(52px, 7vw, 86px);
+      margin: 0 0 22px;
+      font-family: "IBM Plex Sans Condensed", sans-serif;
+      font-size: clamp(48px, 6.2vw, 76px);
       font-weight: 500;
-      line-height: 0.95;
-      letter-spacing: 0.01em;
+      line-height: 0.98;
+      letter-spacing: -0.015em;
       text-transform: uppercase;
     }
 
@@ -120,12 +122,12 @@
       border-right: 1px solid var(--line);
     }
 
-    .sections a:last-child {
-      border-right: none;
+    .sections a:nth-child(2) {
       padding-left: 20px;
     }
 
-    .sections a:nth-child(2) {
+    .sections a:last-child {
+      border-right: none;
       padding-left: 20px;
     }
 
@@ -139,22 +141,15 @@
     }
 
     .section-title {
-      font-family: "Barlow Condensed", sans-serif;
-      font-size: 34px;
+      font-family: "IBM Plex Sans Condensed", sans-serif;
+      font-size: 32px;
       font-weight: 500;
       line-height: 1;
-      letter-spacing: 0.02em;
+      letter-spacing: 0.01em;
       text-transform: uppercase;
     }
 
     .sections a:hover .section-title {
-      color: var(--muted);
-    }
-
-    footer {
-      padding-top: 28px;
-      font-family: "IBM Plex Mono", monospace;
-      font-size: 12px;
       color: var(--muted);
     }
 
@@ -182,7 +177,7 @@
       }
 
       .intro h1 {
-        font-size: clamp(48px, 14vw, 68px);
+        font-size: clamp(44px, 13vw, 64px);
       }
 
       .sections {
@@ -250,10 +245,6 @@
       </div>
 
     </main>
-
-    <footer>
-      Gordon Stirling
-    </footer>
 
   </div>
 
