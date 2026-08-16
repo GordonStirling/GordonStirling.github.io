@@ -16,11 +16,11 @@
 
   <style>
     :root {
-      --background: #060606;
+      --background: #080808;
       --text: #f3f1ec;
       --muted: #b5b1aa;
       --nav: #dedbd5;
-      --line: #272727;
+      --line: #292929;
     }
 
     * {
@@ -41,12 +41,8 @@
 
     .site {
       max-width: 1080px;
-      min-height: 100vh;
-      min-height: 100dvh;
       margin: 0 auto;
-      padding: 38px 48px 52px;
-      display: flex;
-      flex-direction: column;
+      padding: 38px 48px 60px;
     }
 
     header {
@@ -84,21 +80,19 @@
     }
 
     main {
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      padding: 52px 0 18px;
+      padding: 54px 0 80px;
     }
 
     .intro {
       max-width: 880px;
+      margin-bottom: 58px;
     }
 
     .intro h1 {
-      margin: 0 0 22px;
-      max-width: 760px;
+      margin: 0 0 24px;
+      max-width: 780px;
       font-family: "Inter Tight", sans-serif;
-      font-size: clamp(50px, 5.7vw, 72px);
+      font-size: clamp(50px, 5.8vw, 74px);
       font-weight: 500;
       line-height: 0.98;
       letter-spacing: -0.04em;
@@ -107,7 +101,7 @@
 
     .intro p {
       margin: 0;
-      max-width: 700px;
+      max-width: 720px;
       color: var(--muted);
       font-size: 21px;
       line-height: 1.55;
@@ -117,7 +111,6 @@
     .sections {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      margin-top: auto;
       border-top: 1px solid var(--line);
       border-bottom: 1px solid var(--line);
     }
@@ -164,7 +157,7 @@
 
     @media (max-width: 700px) {
       .site {
-        padding: 26px 22px 34px;
+        padding: 26px 22px 40px;
       }
 
       header {
@@ -177,11 +170,11 @@
       }
 
       main {
-        padding: 48px 0 10px;
+        padding: 46px 0 60px;
       }
 
       .intro {
-        margin-bottom: 70px;
+        margin-bottom: 48px;
       }
 
       .intro h1 {
@@ -194,7 +187,6 @@
 
       .sections {
         grid-template-columns: 1fr;
-        margin-top: auto;
       }
 
       .sections a,
