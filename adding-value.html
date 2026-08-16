@@ -10,41 +10,49 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
   <link
-    href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500&display=swap"
+    href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500&family=Inter+Tight:wght@400;500;600&display=swap"
     rel="stylesheet"
   >
 
   <style>
     :root {
-      --background: #171717;
-      --text: #f2f0eb;
-      --muted: #aaa7a1;
-      --line: #343434;
+      --background: #080808;
+      --text: #f3f1ec;
+      --muted: #b8b5af;
+      --nav: #dedbd5;
+      --line: #292929;
     }
 
     * {
       box-sizing: border-box;
     }
 
+    html,
     body {
       margin: 0;
+      min-height: 100%;
       background: var(--background);
+    }
+
+    body {
+      min-height: 100vh;
       color: var(--text);
       font-family: "IBM Plex Sans", sans-serif;
     }
 
     .site {
-      max-width: 1080px;
+      width: 100%;
+      max-width: 1220px;
       min-height: 100vh;
       margin: 0 auto;
-      padding: 38px 48px 52px;
+      padding: 38px 54px 56px;
     }
 
     header {
       display: flex;
       justify-content: space-between;
       align-items: baseline;
-      padding-bottom: 22px;
+      padding-bottom: 24px;
       border-bottom: 1px solid var(--line);
     }
 
@@ -52,23 +60,24 @@
       font-family: "IBM Plex Mono", monospace;
       font-size: 15px;
       font-weight: 500;
-      letter-spacing: 0.01em;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
       color: var(--text);
       text-decoration: none;
     }
 
     nav {
       display: flex;
-      gap: 28px;
+      gap: 34px;
     }
 
     nav a {
       font-family: "IBM Plex Mono", monospace;
       font-size: 13px;
-      color: var(--muted);
+      color: var(--nav);
       text-decoration: none;
       text-transform: uppercase;
-      letter-spacing: 0.04em;
+      letter-spacing: 0.05em;
     }
 
     nav a:hover,
@@ -82,13 +91,13 @@
 
     .back-link {
       display: inline-block;
-      margin-bottom: 28px;
+      margin-bottom: 48px;
       font-family: "IBM Plex Mono", monospace;
       font-size: 12px;
       color: var(--muted);
       text-decoration: none;
       text-transform: uppercase;
-      letter-spacing: 0.06em;
+      letter-spacing: 0.07em;
     }
 
     .back-link:hover {
@@ -96,35 +105,37 @@
     }
 
     .series-header {
-      max-width: 820px;
-      margin-bottom: 62px;
+      max-width: 1020px;
+      margin-bottom: 88px;
     }
 
     .series-meta {
-      margin-bottom: 14px;
+      margin-bottom: 22px;
       font-family: "IBM Plex Mono", monospace;
       font-size: 12px;
       color: var(--muted);
       text-transform: uppercase;
-      letter-spacing: 0.08em;
+      letter-spacing: 0.09em;
     }
 
     .series-header h1 {
-      margin: 0 0 18px;
-      font-family: "Barlow Condensed", sans-serif;
-      font-size: clamp(54px, 7vw, 86px);
+      margin: 0 0 32px;
+      max-width: 980px;
+      font-family: "Inter Tight", sans-serif;
+      font-size: clamp(56px, 6vw, 84px);
       font-weight: 500;
-      line-height: 0.95;
-      letter-spacing: 0.01em;
+      line-height: 0.96;
+      letter-spacing: -0.045em;
       text-transform: uppercase;
     }
 
     .series-header p {
       margin: 0;
-      max-width: 650px;
+      max-width: 900px;
       color: var(--muted);
-      font-size: 18px;
-      line-height: 1.55;
+      font-size: 28px;
+      line-height: 1.4;
+      letter-spacing: -0.02em;
     }
 
     .post-list {
@@ -133,71 +144,69 @@
 
     .post {
       display: grid;
-      grid-template-columns: 90px 1fr 32px;
-      gap: 24px;
-      align-items: start;
+      grid-template-columns: 90px 1fr auto;
+      gap: 28px;
+      align-items: center;
+      min-height: 170px;
       padding: 30px 0;
       border-bottom: 1px solid var(--line);
       color: var(--text);
       text-decoration: none;
+      transition: background-color 0.2s ease;
+    }
+
+    a.post:hover {
+      background: #101010;
     }
 
     .post-number {
-      padding-top: 5px;
       font-family: "IBM Plex Mono", monospace;
       font-size: 12px;
       color: var(--muted);
-      letter-spacing: 0.06em;
+      letter-spacing: 0.08em;
     }
 
     .post h2 {
-      margin: 0 0 6px;
-      font-family: "Barlow Condensed", sans-serif;
-      font-size: 34px;
+      margin: 0 0 12px;
+      font-family: "Inter Tight", sans-serif;
+      font-size: clamp(34px, 3.5vw, 48px);
       font-weight: 500;
       line-height: 1;
-      letter-spacing: 0.02em;
+      letter-spacing: -0.035em;
       text-transform: uppercase;
     }
 
     .post p {
       margin: 0;
-      max-width: 640px;
+      max-width: 720px;
       color: var(--muted);
-      font-size: 16px;
-      line-height: 1.55;
+      font-size: 17px;
+      line-height: 1.5;
     }
 
-    .arrow {
-      padding-top: 3px;
+    .post-arrow {
+      padding-right: 6px;
       font-family: "IBM Plex Mono", monospace;
-      font-size: 20px;
-      color: var(--muted);
-    }
-
-    .post:hover h2,
-    .post:hover .arrow {
+      font-size: 18px;
       color: var(--muted);
     }
 
     .coming-soon {
-      opacity: 0.55;
-      cursor: default;
+      opacity: 0.46;
     }
 
-    .coming-soon:hover h2,
-    .coming-soon:hover .arrow {
-      color: inherit;
-    }
-
-    footer {
-      padding-top: 30px;
+    .status {
+      display: inline-block;
+      margin-top: 13px;
       font-family: "IBM Plex Mono", monospace;
-      font-size: 12px;
+      font-size: 10px;
       color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
     }
 
     @media (max-width: 700px) {
+
       .site {
         padding: 26px 22px 40px;
       }
@@ -207,26 +216,44 @@
       }
 
       nav {
-        margin-top: 15px;
-        gap: 18px;
+        margin-top: 16px;
+        gap: 20px;
       }
 
       main {
-        padding: 58px 0 70px;
+        padding: 52px 0 60px;
+      }
+
+      .back-link {
+        margin-bottom: 38px;
       }
 
       .series-header {
-        margin-bottom: 46px;
+        margin-bottom: 54px;
+      }
+
+      .series-header h1 {
+        margin-bottom: 24px;
+        font-size: clamp(46px, 12vw, 64px);
+      }
+
+      .series-header p {
+        font-size: 21px;
       }
 
       .post {
-        grid-template-columns: 46px 1fr 20px;
-        gap: 12px;
+        grid-template-columns: 44px 1fr 20px;
+        gap: 14px;
+        min-height: 145px;
         padding: 26px 0;
       }
 
       .post h2 {
         font-size: 30px;
+      }
+
+      .post p {
+        font-size: 15px;
       }
     }
   </style>
@@ -237,6 +264,7 @@
   <div class="site">
 
     <header>
+
       <div class="name">
         <a href="index.html">Gordon Stirling</a>
       </div>
@@ -246,20 +274,27 @@
         <a href="research.html">Research</a>
         <a href="about.html">About</a>
       </nav>
+
     </header>
 
     <main>
 
-      <a class="back-link" href="writing.html">← Writing</a>
+      <a class="back-link" href="writing.html">
+        ← Writing
+      </a>
 
       <div class="series-header">
 
-        <div class="series-meta">Series 01</div>
+        <div class="series-meta">
+          Series 01
+        </div>
 
-        <h1>Adding Value as a Data Practitioner</h1>
+        <h1>
+          Adding Value as a Data Practitioner
+        </h1>
 
         <p>
-          A series exploring how data practitioners create value in the real world.
+          Exploring how analytical work creates influence and adds value in the real world.
         </p>
 
       </div>
@@ -267,77 +302,112 @@
       <div class="post-list">
 
         <a class="post" href="output-not-value.html">
-          <div class="post-number">01</div>
+
+          <div class="post-number">
+            01
+          </div>
 
           <div>
             <h2>Output ≠ Value</h2>
+
             <p>
               Why producing an analytical output does not automatically mean we have created value.
             </p>
           </div>
 
-          <div class="arrow">→</div>
+          <div class="post-arrow">
+            →
+          </div>
+
         </a>
 
         <a class="post" href="output-influence-value.html">
-          <div class="post-number">02</div>
+
+          <div class="post-number">
+            02
+          </div>
 
           <div>
             <h2>Output → Influence → Value</h2>
+
             <p>
               A practical way of thinking about how analytical outputs move from delivery into practice.
             </p>
           </div>
 
-          <div class="arrow">→</div>
+          <div class="post-arrow">
+            →
+          </div>
+
         </a>
 
         <a class="post" href="purpose-over-data.html">
-          <div class="post-number">03</div>
+
+          <div class="post-number">
+            03
+          </div>
 
           <div>
             <h2>Purpose &gt; Data</h2>
+
             <p>
               Why purpose helps us navigate complexity and identify the right problems to solve.
             </p>
           </div>
 
-          <div class="arrow">→</div>
+          <div class="post-arrow">
+            →
+          </div>
+
         </a>
 
         <div class="post coming-soon">
-          <div class="post-number">04</div>
+
+          <div class="post-number">
+            04
+          </div>
 
           <div>
             <h2>Deliberate Value Creation</h2>
+
             <p>
-              A practical loop for designing, refining and embedding analytical work with the people it is intended to support.
+              A practical process for designing, refining and embedding analytical work with the people it is intended to support.
             </p>
+
+            <span class="status">Coming soon</span>
           </div>
 
-          <div class="arrow">—</div>
+          <div class="post-arrow">
+            —
+          </div>
+
         </div>
 
         <div class="post coming-soon">
-          <div class="post-number">05</div>
+
+          <div class="post-number">
+            05
+          </div>
 
           <div>
             <h2>Evaluation</h2>
+
             <p>
-              How we know whether embedded analytical practice is working, and how we maintain it over time.
+              What happens after analytical practice becomes embedded: how we evaluate, maintain and improve it over time.
             </p>
+
+            <span class="status">Coming soon</span>
           </div>
 
-          <div class="arrow">—</div>
+          <div class="post-arrow">
+            —
+          </div>
+
         </div>
 
       </div>
 
     </main>
-
-    <footer>
-      Gordon Stirling
-    </footer>
 
   </div>
 
