@@ -16,20 +16,25 @@
 
   <style>
     :root {
-      --background: #090909;
+      --background: #060606;
       --text: #f3f1ec;
-      --muted: #aaa7a1;
-      --nav: #e1ded8;
-      --line: #2a2a2a;
+      --muted: #b5b1aa;
+      --nav: #dedbd5;
+      --line: #272727;
     }
 
     * {
       box-sizing: border-box;
     }
 
+    html,
     body {
       margin: 0;
+      min-height: 100%;
       background: var(--background);
+    }
+
+    body {
       color: var(--text);
       font-family: "IBM Plex Sans", sans-serif;
     }
@@ -37,6 +42,7 @@
     .site {
       max-width: 1080px;
       min-height: 100vh;
+      min-height: 100dvh;
       margin: 0 auto;
       padding: 38px 48px 52px;
       display: flex;
@@ -81,19 +87,18 @@
       flex: 1;
       display: flex;
       flex-direction: column;
-      justify-content: center;
-      padding: 72px 0;
+      padding: 52px 0 18px;
     }
 
     .intro {
       max-width: 880px;
-      margin-bottom: 72px;
     }
 
     .intro h1 {
-      margin: 0 0 24px;
+      margin: 0 0 22px;
+      max-width: 760px;
       font-family: "Inter Tight", sans-serif;
-      font-size: clamp(50px, 6vw, 76px);
+      font-size: clamp(50px, 5.7vw, 72px);
       font-weight: 500;
       line-height: 0.98;
       letter-spacing: -0.04em;
@@ -102,15 +107,17 @@
 
     .intro p {
       margin: 0;
-      max-width: 650px;
+      max-width: 700px;
       color: var(--muted);
-      font-size: 18px;
-      line-height: 1.6;
+      font-size: 21px;
+      line-height: 1.55;
+      letter-spacing: -0.01em;
     }
 
     .sections {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
+      margin-top: auto;
       border-top: 1px solid var(--line);
       border-bottom: 1px solid var(--line);
     }
@@ -157,7 +164,7 @@
 
     @media (max-width: 700px) {
       .site {
-        padding: 26px 22px 36px;
+        padding: 26px 22px 34px;
       }
 
       header {
@@ -170,20 +177,24 @@
       }
 
       main {
-        justify-content: flex-start;
-        padding: 64px 0;
+        padding: 48px 0 10px;
       }
 
       .intro {
-        margin-bottom: 54px;
+        margin-bottom: 70px;
       }
 
       .intro h1 {
         font-size: clamp(44px, 12vw, 62px);
       }
 
+      .intro p {
+        font-size: 18px;
+      }
+
       .sections {
         grid-template-columns: 1fr;
+        margin-top: auto;
       }
 
       .sections a,
