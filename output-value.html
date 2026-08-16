@@ -181,24 +181,20 @@
       font-weight: 500;
     }
 
-    .article-body .key-line {
-      margin: 52px auto;
-      max-width: 760px;
+    .article-body .key-line,
+    .article-body .closing-question {
+      max-width: 720px;
+      margin: 44px auto;
       font-family: "Inter Tight", sans-serif;
-      font-size: clamp(30px, 3vw, 40px);
-      font-weight: 500;
-      line-height: 1.15;
-      letter-spacing: -0.025em;
+      font-size: clamp(27px, 2.5vw, 32px);
+      font-weight: 400;
+      line-height: 1.2;
+      letter-spacing: -0.02em;
     }
 
     .article-body .closing-question {
-      margin: 58px auto 0;
-      max-width: 760px;
-      font-family: "Inter Tight", sans-serif;
-      font-size: clamp(30px, 3vw, 40px);
-      font-weight: 500;
-      line-height: 1.15;
-      letter-spacing: -0.025em;
+      margin-top: 50px;
+      margin-bottom: 0;
     }
 
     .references {
@@ -326,9 +322,14 @@
 
       .article-body .key-line,
       .article-body .closing-question {
-        margin-top: 44px;
-        margin-bottom: 44px;
-        font-size: 29px;
+        margin-top: 38px;
+        margin-bottom: 38px;
+        font-size: 26px;
+        line-height: 1.2;
+      }
+
+      .article-body .closing-question {
+        margin-bottom: 0;
       }
 
       .references {
