@@ -10,41 +10,49 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
   <link
-    href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500&display=swap"
+    href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500&family=Inter+Tight:wght@400;500;600&display=swap"
     rel="stylesheet"
   >
 
   <style>
     :root {
-      --background: #171717;
-      --text: #f2f0eb;
-      --muted: #aaa7a1;
-      --line: #343434;
+      --background: #080808;
+      --text: #f3f1ec;
+      --muted: #b8b5af;
+      --nav: #dedbd5;
+      --line: #292929;
     }
 
     * {
       box-sizing: border-box;
     }
 
+    html,
     body {
       margin: 0;
+      min-height: 100%;
       background: var(--background);
+    }
+
+    body {
+      min-height: 100vh;
       color: var(--text);
       font-family: "IBM Plex Sans", sans-serif;
     }
 
     .site {
-      max-width: 1080px;
+      width: 100%;
+      max-width: 1220px;
       min-height: 100vh;
       margin: 0 auto;
-      padding: 38px 48px 52px;
+      padding: 38px 54px 56px;
     }
 
     header {
       display: flex;
       justify-content: space-between;
       align-items: baseline;
-      padding-bottom: 22px;
+      padding-bottom: 24px;
       border-bottom: 1px solid var(--line);
     }
 
@@ -52,23 +60,24 @@
       font-family: "IBM Plex Mono", monospace;
       font-size: 15px;
       font-weight: 500;
-      letter-spacing: 0.01em;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
       color: var(--text);
       text-decoration: none;
     }
 
     nav {
       display: flex;
-      gap: 28px;
+      gap: 34px;
     }
 
     nav a {
       font-family: "IBM Plex Mono", monospace;
       font-size: 13px;
-      color: var(--muted);
+      color: var(--nav);
       text-decoration: none;
       text-transform: uppercase;
-      letter-spacing: 0.04em;
+      letter-spacing: 0.05em;
     }
 
     nav a:hover,
@@ -77,30 +86,31 @@
     }
 
     main {
-      padding: 72px 0 90px;
+      padding: 82px 0 90px;
     }
 
-    .page-title {
-      margin-bottom: 62px;
-      max-width: 720px;
+    .page-header {
+      max-width: 980px;
+      margin-bottom: 88px;
     }
 
-    .page-title h1 {
-      margin: 0 0 16px;
-      font-family: "Barlow Condensed", sans-serif;
-      font-size: clamp(54px, 7vw, 82px);
+    .page-header h1 {
+      margin: 0 0 34px;
+      font-family: "Inter Tight", sans-serif;
+      font-size: clamp(58px, 6.2vw, 86px);
       font-weight: 500;
-      line-height: 0.95;
-      letter-spacing: 0.01em;
+      line-height: 0.96;
+      letter-spacing: -0.045em;
       text-transform: uppercase;
     }
 
-    .page-title p {
+    .page-header p {
       margin: 0;
-      max-width: 620px;
+      max-width: 900px;
       color: var(--muted);
-      font-size: 18px;
-      line-height: 1.55;
+      font-size: 30px;
+      line-height: 1.4;
+      letter-spacing: -0.02em;
     }
 
     .series-list {
@@ -109,57 +119,51 @@
 
     .series {
       display: grid;
-      grid-template-columns: 90px 1fr 32px;
-      gap: 24px;
-      align-items: start;
-      padding: 32px 0;
+      grid-template-columns: 90px 1fr auto;
+      gap: 28px;
+      align-items: center;
+      min-height: 190px;
+      padding: 34px 0;
       border-bottom: 1px solid var(--line);
       color: var(--text);
       text-decoration: none;
+      transition: background-color 0.2s ease;
+    }
+
+    .series:hover {
+      background: #101010;
     }
 
     .series-number {
-      padding-top: 5px;
       font-family: "IBM Plex Mono", monospace;
       font-size: 12px;
       color: var(--muted);
-      letter-spacing: 0.06em;
+      letter-spacing: 0.08em;
     }
 
     .series h2 {
-      margin: 0 0 8px;
-      font-family: "Barlow Condensed", sans-serif;
-      font-size: 36px;
+      margin: 0 0 14px;
+      max-width: 760px;
+      font-family: "Inter Tight", sans-serif;
+      font-size: clamp(36px, 4vw, 54px);
       font-weight: 500;
       line-height: 1;
-      letter-spacing: 0.02em;
+      letter-spacing: -0.035em;
       text-transform: uppercase;
     }
 
     .series p {
       margin: 0;
-      max-width: 620px;
+      max-width: 700px;
       color: var(--muted);
-      font-size: 16px;
-      line-height: 1.55;
+      font-size: 18px;
+      line-height: 1.5;
     }
 
-    .arrow {
-      padding-top: 3px;
+    .series-arrow {
+      padding-right: 6px;
       font-family: "IBM Plex Mono", monospace;
-      font-size: 20px;
-      color: var(--muted);
-    }
-
-    .series:hover h2,
-    .series:hover .arrow {
-      color: var(--muted);
-    }
-
-    footer {
-      padding-top: 30px;
-      font-family: "IBM Plex Mono", monospace;
-      font-size: 12px;
+      font-size: 18px;
       color: var(--muted);
     }
 
@@ -173,26 +177,40 @@
       }
 
       nav {
-        margin-top: 15px;
-        gap: 18px;
+        margin-top: 16px;
+        gap: 20px;
       }
 
       main {
-        padding: 58px 0 70px;
+        padding: 52px 0 60px;
       }
 
-      .page-title {
-        margin-bottom: 46px;
+      .page-header {
+        margin-bottom: 54px;
+      }
+
+      .page-header h1 {
+        margin-bottom: 24px;
+        font-size: clamp(46px, 13vw, 64px);
+      }
+
+      .page-header p {
+        font-size: 21px;
       }
 
       .series {
-        grid-template-columns: 46px 1fr 20px;
-        gap: 12px;
-        padding: 26px 0;
+        grid-template-columns: 44px 1fr 20px;
+        gap: 14px;
+        min-height: 150px;
+        padding: 28px 0;
       }
 
       .series h2 {
-        font-size: 30px;
+        font-size: 32px;
+      }
+
+      .series p {
+        font-size: 16px;
       }
     }
   </style>
@@ -216,48 +234,59 @@
 
     <main>
 
-      <div class="page-title">
+      <div class="page-header">
         <h1>Writing</h1>
+
         <p>
-          Series and reflections on data, decision-making, performance and practice.
+          Series and reflections on making data useful in practice.
         </p>
       </div>
 
       <div class="series-list">
 
         <a class="series" href="adding-value.html">
-          <div class="series-number">01</div>
+
+          <div class="series-number">
+            01
+          </div>
 
           <div>
             <h2>Adding Value as a Data Practitioner</h2>
+
             <p>
-              Exploring how data practitioners create value in the real world.
+              Exploring how analytical work creates influence and adds value in the real world.
             </p>
           </div>
 
-          <div class="arrow">→</div>
+          <div class="series-arrow">
+            →
+          </div>
+
         </a>
 
         <a class="series" href="reflections.html">
-          <div class="series-number">02</div>
+
+          <div class="series-number">
+            02
+          </div>
 
           <div>
             <h2>Reflections</h2>
+
             <p>
               Short observations and reflections from practice.
             </p>
           </div>
 
-          <div class="arrow">→</div>
+          <div class="series-arrow">
+            →
+          </div>
+
         </a>
 
       </div>
 
     </main>
-
-    <footer>
-      Gordon Stirling
-    </footer>
 
   </div>
 
