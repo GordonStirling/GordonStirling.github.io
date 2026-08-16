@@ -10,7 +10,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
   <link
-    href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500&family=Inter+Tight:wght@400;500;600&display=swap"
+    href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@300;400;500&family=Inter+Tight:wght@300;400;500;600&display=swap"
     rel="stylesheet"
   >
 
@@ -27,17 +27,30 @@
       box-sizing: border-box;
     }
 
-    html,
-    body {
+    html {
       margin: 0;
+      padding: 0;
+      width: 100%;
       min-height: 100%;
-      background: var(--background);
+      background-color: #080808 !important;
     }
 
     body {
+      margin: 0;
+      padding: 0;
+      width: 100%;
       min-height: 100vh;
+      background-color: #080808 !important;
       color: var(--text);
       font-family: "IBM Plex Sans", sans-serif;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      background-color: #080808;
     }
 
     .site {
@@ -46,6 +59,7 @@
       min-height: 100vh;
       margin: 0 auto;
       padding: 38px 54px 56px;
+      background-color: #080808;
     }
 
     header {
@@ -90,62 +104,75 @@
     }
 
     .page-header {
-      max-width: 980px;
-      margin-bottom: 88px;
+      max-width: 1100px;
+      margin: 0 auto 92px;
+      text-align: center;
     }
 
     .page-header h1 {
-      margin: 0 0 34px;
+      margin: 0 0 20px;
       font-family: "Inter Tight", sans-serif;
       font-size: clamp(58px, 6.2vw, 86px);
       font-weight: 500;
       line-height: 0.96;
-      letter-spacing: -0.045em;
+      letter-spacing: -0.04em;
       text-transform: uppercase;
     }
 
     .page-header p {
-      margin: 0;
-      max-width: 900px;
+      margin: 0 auto;
+      max-width: 1020px;
       color: var(--muted);
+      font-family: "IBM Plex Sans", sans-serif;
       font-size: 30px;
-      line-height: 1.4;
+      font-weight: 300;
+      line-height: 1.35;
       letter-spacing: -0.02em;
+      text-transform: uppercase;
     }
 
-    .series-list {
+    .series-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
       border-top: 1px solid var(--line);
+      border-left: 1px solid var(--line);
     }
 
     .series {
-      display: grid;
-      grid-template-columns: 90px 1fr auto;
-      gap: 28px;
+      min-height: 320px;
+      padding: 44px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
       align-items: center;
-      min-height: 190px;
-      padding: 34px 0;
-      border-bottom: 1px solid var(--line);
+      text-align: center;
+
       color: var(--text);
       text-decoration: none;
+
+      border-right: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+
       transition: background-color 0.2s ease;
     }
 
-    .series:hover {
+    a.series:hover {
       background: #101010;
     }
 
     .series-number {
+      margin-bottom: 22px;
       font-family: "IBM Plex Mono", monospace;
-      font-size: 12px;
+      font-size: 11px;
       color: var(--muted);
-      letter-spacing: 0.08em;
+      letter-spacing: 0.1em;
     }
 
     .series h2 {
-      margin: 0 0 14px;
-      max-width: 760px;
+      margin: 0 0 20px;
+      max-width: 470px;
       font-family: "Inter Tight", sans-serif;
-      font-size: clamp(36px, 4vw, 54px);
+      font-size: clamp(38px, 4vw, 54px);
       font-weight: 500;
       line-height: 1;
       letter-spacing: -0.035em;
@@ -154,20 +181,27 @@
 
     .series p {
       margin: 0;
-      max-width: 700px;
+      max-width: 440px;
       color: var(--muted);
-      font-size: 18px;
+      font-size: 17px;
       line-height: 1.5;
     }
 
-    .series-arrow {
-      padding-right: 6px;
+    .status {
+      margin-top: 22px;
       font-family: "IBM Plex Mono", monospace;
-      font-size: 18px;
+      font-size: 10px;
       color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+
+    .coming-soon {
+      opacity: 0.48;
     }
 
     @media (max-width: 700px) {
+
       .site {
         padding: 26px 22px 40px;
       }
@@ -190,27 +224,30 @@
       }
 
       .page-header h1 {
-        margin-bottom: 24px;
+        margin-bottom: 14px;
         font-size: clamp(46px, 13vw, 64px);
       }
 
       .page-header p {
-        font-size: 21px;
+        font-size: 20px;
+        line-height: 1.45;
+      }
+
+      .series-grid {
+        grid-template-columns: 1fr;
       }
 
       .series {
-        grid-template-columns: 44px 1fr 20px;
-        gap: 14px;
-        min-height: 150px;
-        padding: 28px 0;
+        min-height: 230px;
+        padding: 36px 24px;
       }
 
       .series h2 {
-        font-size: 32px;
+        font-size: 36px;
       }
 
       .series p {
-        font-size: 16px;
+        font-size: 15px;
       }
     }
   </style>
@@ -221,6 +258,7 @@
   <div class="site">
 
     <header>
+
       <div class="name">
         <a href="index.html">Gordon Stirling</a>
       </div>
@@ -230,19 +268,25 @@
         <a href="research.html">Research</a>
         <a href="about.html">About</a>
       </nav>
+
     </header>
 
     <main>
 
       <div class="page-header">
-        <h1>Writing</h1>
+
+        <h1>
+          WRITING
+        </h1>
 
         <p>
-          Series and reflections on making data useful in practice.
+          SERIES EXPLORING HOW DATA BECOMES<br>
+          USEFUL IN PRACTICE.
         </p>
+
       </div>
 
-      <div class="series-list">
+      <div class="series-grid">
 
         <a class="series" href="adding-value.html">
 
@@ -250,39 +294,38 @@
             01
           </div>
 
-          <div>
-            <h2>Adding Value as a Data Practitioner</h2>
+          <h2>
+            Adding Value as a<br>
+            Data Practitioner
+          </h2>
 
-            <p>
-              Exploring how analytical work creates influence and adds value in the real world.
-            </p>
-          </div>
-
-          <div class="series-arrow">
-            →
-          </div>
+          <p>
+            Exploring how analytical work creates influence and adds value in the real world.
+          </p>
 
         </a>
 
-        <a class="series" href="reflections.html">
+
+        <div class="series coming-soon">
 
           <div class="series-number">
             02
           </div>
 
-          <div>
-            <h2>Reflections</h2>
+          <h2>
+            Building Resilient<br>
+            Systems
+          </h2>
 
-            <p>
-              Short observations and reflections from practice.
-            </p>
+          <p>
+            Exploring how analytical systems can remain useful, adaptable and resilient over time.
+          </p>
+
+          <div class="status">
+            Coming soon
           </div>
 
-          <div class="series-arrow">
-            →
-          </div>
-
-        </a>
+        </div>
 
       </div>
 
