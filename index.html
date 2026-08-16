@@ -27,36 +27,31 @@
       box-sizing: border-box;
     }
 
-    html {
+    html,
+    body {
       margin: 0;
       min-height: 100%;
-      background-color: #080808;
+      background: var(--background);
     }
 
     body {
-      margin: 0;
       min-height: 100vh;
-      min-height: 100dvh;
-      background-color: #080808;
       color: var(--text);
       font-family: "IBM Plex Sans", sans-serif;
     }
 
     .site {
       width: 100%;
-      max-width: 1080px;
-      min-height: 100vh;
-      min-height: 100dvh;
+      max-width: 1220px;
       margin: 0 auto;
-      padding: 38px 48px 60px;
-      background-color: #080808;
+      padding: 38px 54px 70px;
     }
 
     header {
       display: flex;
       justify-content: space-between;
       align-items: baseline;
-      padding-bottom: 22px;
+      padding-bottom: 24px;
       border-bottom: 1px solid var(--line);
     }
 
@@ -64,13 +59,13 @@
       font-family: "IBM Plex Mono", monospace;
       font-size: 15px;
       font-weight: 500;
-      letter-spacing: 0.035em;
+      letter-spacing: 0.04em;
       text-transform: uppercase;
     }
 
     nav {
       display: flex;
-      gap: 30px;
+      gap: 34px;
     }
 
     nav a {
@@ -79,7 +74,7 @@
       color: var(--nav);
       text-decoration: none;
       text-transform: uppercase;
-      letter-spacing: 0.045em;
+      letter-spacing: 0.05em;
     }
 
     nav a:hover {
@@ -87,82 +82,104 @@
     }
 
     main {
-      padding: 54px 0 80px;
+      padding: 82px 0 90px;
     }
 
     .intro {
-      max-width: 880px;
-      margin-bottom: 58px;
+      max-width: 900px;
+      margin-bottom: 92px;
     }
 
     .intro h1 {
-      margin: 0 0 26px;
-      max-width: 780px;
+      margin: 0 0 34px;
+      max-width: 850px;
+
       font-family: "Inter Tight", sans-serif;
-      font-size: clamp(50px, 5.8vw, 74px);
+      font-size: clamp(58px, 6.2vw, 86px);
       font-weight: 500;
-      line-height: 0.98;
-      letter-spacing: -0.04em;
+      line-height: 0.96;
+      letter-spacing: -0.045em;
       text-transform: uppercase;
     }
 
     .intro p {
       margin: 0;
-      max-width: 760px;
+      max-width: 780px;
+
       color: var(--muted);
       font-size: 24px;
-      line-height: 1.45;
+      line-height: 1.5;
       letter-spacing: -0.015em;
     }
 
     .sections {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
+
+      min-height: 230px;
+
       border-top: 1px solid var(--line);
       border-bottom: 1px solid var(--line);
     }
 
     .sections a {
-      padding: 34px 26px 36px 0;
+      position: relative;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      padding: 40px;
+
       color: var(--text);
       text-decoration: none;
-      border-right: 1px solid var(--line);
-    }
 
-    .sections a:nth-child(2),
-    .sections a:last-child {
-      padding-left: 26px;
+      border-right: 1px solid var(--line);
+
+      transition:
+        background-color 0.2s ease,
+        color 0.2s ease;
     }
 
     .sections a:last-child {
       border-right: none;
     }
 
+    .section-content {
+      text-align: center;
+    }
+
     .section-number {
       display: block;
-      margin-bottom: 16px;
+      margin-bottom: 18px;
+
       font-family: "IBM Plex Mono", monospace;
       font-size: 11px;
       color: var(--muted);
-      letter-spacing: 0.08em;
+      letter-spacing: 0.1em;
     }
 
     .section-title {
-      display: inline-block;
+      display: block;
+
       font-family: "Inter Tight", sans-serif;
-      font-size: 30px;
+      font-size: 32px;
       font-weight: 500;
       line-height: 1;
       letter-spacing: -0.025em;
       text-transform: uppercase;
-      transition: opacity 0.2s ease;
     }
 
-    .sections a:hover .section-title {
-      opacity: 0.62;
+    .sections a:hover {
+      background: #101010;
+    }
+
+    .sections a:hover .section-number {
+      color: var(--nav);
     }
 
     @media (max-width: 700px) {
+
       .site {
         padding: 26px 22px 40px;
       }
@@ -172,20 +189,22 @@
       }
 
       nav {
-        margin-top: 15px;
-        gap: 18px;
+        margin-top: 16px;
+        gap: 20px;
       }
 
       main {
-        padding: 46px 0 60px;
+        padding: 52px 0 60px;
       }
 
       .intro {
-        margin-bottom: 48px;
+        margin-bottom: 54px;
       }
 
       .intro h1 {
-        font-size: clamp(44px, 12vw, 62px);
+        margin-bottom: 26px;
+
+        font-size: clamp(46px, 13vw, 64px);
       }
 
       .intro p {
@@ -194,12 +213,11 @@
 
       .sections {
         grid-template-columns: 1fr;
+        min-height: auto;
       }
 
-      .sections a,
-      .sections a:nth-child(2),
-      .sections a:last-child {
-        padding: 26px 0;
+      .sections a {
+        min-height: 140px;
         border-right: none;
         border-bottom: 1px solid var(--line);
       }
@@ -208,6 +226,7 @@
         border-bottom: none;
       }
     }
+
   </style>
 </head>
 
@@ -216,13 +235,17 @@
   <div class="site">
 
     <header>
-      <div class="name">Gordon Stirling</div>
+
+      <div class="name">
+        Gordon Stirling
+      </div>
 
       <nav>
         <a href="writing.html">Writing</a>
         <a href="research.html">Research</a>
         <a href="about.html">About</a>
       </nav>
+
     </header>
 
     <main>
@@ -244,18 +267,24 @@
       <div class="sections">
 
         <a href="writing.html">
-          <span class="section-number">01</span>
-          <span class="section-title">Writing</span>
+          <div class="section-content">
+            <span class="section-number">01</span>
+            <span class="section-title">Writing</span>
+          </div>
         </a>
 
         <a href="research.html">
-          <span class="section-number">02</span>
-          <span class="section-title">Research</span>
+          <div class="section-content">
+            <span class="section-number">02</span>
+            <span class="section-title">Research</span>
+          </div>
         </a>
 
         <a href="about.html">
-          <span class="section-number">03</span>
-          <span class="section-title">About</span>
+          <div class="section-content">
+            <span class="section-number">03</span>
+            <span class="section-title">About</span>
+          </div>
         </a>
 
       </div>
