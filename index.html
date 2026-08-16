@@ -16,11 +16,11 @@
 
   <style>
     :root {
-      --background: #0f0f0f;
+      --background: #090909;
       --text: #f3f1ec;
       --muted: #aaa7a1;
-      --nav: #d8d5cf;
-      --line: #2b2b2b;
+      --nav: #e1ded8;
+      --line: #2a2a2a;
     }
 
     * {
@@ -91,9 +91,9 @@
     }
 
     .intro h1 {
-      margin: 0 0 26px;
+      margin: 0 0 24px;
       font-family: "Inter Tight", sans-serif;
-      font-size: clamp(48px, 6vw, 74px);
+      font-size: clamp(50px, 6vw, 76px);
       font-weight: 500;
       line-height: 0.98;
       letter-spacing: -0.04em;
@@ -102,7 +102,7 @@
 
     .intro p {
       margin: 0;
-      max-width: 610px;
+      max-width: 650px;
       color: var(--muted);
       font-size: 18px;
       line-height: 1.6;
@@ -111,15 +111,24 @@
     .sections {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 42px;
-      padding: 30px 0 32px;
       border-top: 1px solid var(--line);
       border-bottom: 1px solid var(--line);
     }
 
     .sections a {
+      padding: 28px 24px 30px 0;
       color: var(--text);
       text-decoration: none;
+      border-right: 1px solid var(--line);
+    }
+
+    .sections a:nth-child(2),
+    .sections a:last-child {
+      padding-left: 24px;
+    }
+
+    .sections a:last-child {
+      border-right: none;
     }
 
     .section-number {
@@ -175,12 +184,13 @@
 
       .sections {
         grid-template-columns: 1fr;
-        gap: 0;
-        padding: 0;
       }
 
-      .sections a {
+      .sections a,
+      .sections a:nth-child(2),
+      .sections a:last-child {
         padding: 24px 0;
+        border-right: none;
         border-bottom: 1px solid var(--line);
       }
 
@@ -210,13 +220,13 @@
       <div class="intro">
 
         <h1>
-          Data, decision-making,<br>
-          performance and practice.
+          Making data useful<br>
+          in practice.
         </h1>
 
         <p>
-          Writing and research exploring how data can be used more effectively
-          in applied environments.
+          Writing about how data moves from analysis to understanding,
+          decisions and practice.
         </p>
 
       </div>
