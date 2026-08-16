@@ -10,7 +10,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
   <link
-    href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Inter+Tight:wght@300;400;500;600&display=swap"
+    href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Inter+Tight:wght@300;400;500;600&display=swap"
     rel="stylesheet"
   >
 
@@ -210,39 +210,54 @@
 
     .purpose-block {
       max-width: 720px;
-      margin: 54px auto 50px;
+      margin: 54px auto 48px;
       text-align: center;
     }
 
-    .purpose-block p {
-      margin: 0 0 20px;
+    .purpose-start {
+      margin: 0 0 42px;
       font-family: "Inter Tight", sans-serif;
-      font-size: clamp(25px, 2.3vw, 30px);
-      font-weight: 400;
-      line-height: 1.25;
+      font-size: clamp(27px, 2.5vw, 32px);
+      font-weight: 300;
+      line-height: 1.2;
       letter-spacing: -0.02em;
     }
 
-    .purpose-block p:first-child {
-      margin-bottom: 34px;
+    .purpose-start strong {
+      font-weight: 500;
     }
 
-    .purpose-block p:last-child {
+    .purpose-questions {
+      margin: 0;
+    }
+
+    .purpose-questions p {
+      margin: 0 0 18px;
+      font-family: "IBM Plex Sans", sans-serif;
+      font-size: clamp(19px, 1.7vw, 21px);
+      font-weight: 300;
+      font-style: italic;
+      line-height: 1.45;
+      letter-spacing: -0.01em;
+    }
+
+    .purpose-questions p:last-child {
       margin-bottom: 0;
     }
 
-    .purpose-block strong {
+    .purpose-questions strong {
       font-weight: 500;
+      font-style: italic;
     }
 
     .purpose-sequence {
       margin: 50px auto 54px;
-      color: var(--muted);
+      color: var(--text);
       font-family: "Inter Tight", sans-serif;
-      font-size: clamp(23px, 2.1vw, 27px);
-      font-weight: 400;
+      font-size: clamp(27px, 2.5vw, 32px);
+      font-weight: 500;
       line-height: 1.2;
-      letter-spacing: -0.015em;
+      letter-spacing: -0.02em;
     }
 
     .references {
@@ -397,19 +412,20 @@
         margin: 44px auto 42px;
       }
 
-      .purpose-block p {
-        margin-bottom: 18px;
-        font-size: 24px;
-        line-height: 1.25;
+      .purpose-start {
+        margin-bottom: 34px;
+        font-size: 26px;
       }
 
-      .purpose-block p:first-child {
-        margin-bottom: 30px;
+      .purpose-questions p {
+        margin-bottom: 15px;
+        font-size: 17px;
+        line-height: 1.45;
       }
 
       .purpose-sequence {
         margin: 42px auto 46px;
-        font-size: 23px;
+        font-size: 26px;
       }
 
       .references {
@@ -503,21 +519,25 @@
 
         <div class="purpose-block">
 
-          <p>
+          <div class="purpose-start">
             Start with <strong>Purpose</strong>.
-          </p>
+          </div>
 
-          <p>
-            <strong>Who</strong> are you trying to support?
-          </p>
+          <div class="purpose-questions">
 
-          <p>
-            What <strong>problem</strong> are you trying to solve?
-          </p>
+            <p>
+              <strong>Who</strong> are you trying to support?
+            </p>
 
-          <p>
-            What are you trying to change or <strong>influence</strong>?
-          </p>
+            <p>
+              What <strong>problem</strong> are you trying to solve?
+            </p>
+
+            <p>
+              What are you trying to change or <strong>influence</strong>?
+            </p>
+
+          </div>
 
         </div>
 
