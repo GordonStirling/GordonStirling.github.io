@@ -27,17 +27,30 @@
       box-sizing: border-box;
     }
 
-    html,
-    body {
+    html {
       margin: 0;
+      padding: 0;
+      width: 100%;
       min-height: 100%;
-      background: var(--background);
+      background-color: #080808 !important;
     }
 
     body {
+      margin: 0;
+      padding: 0;
+      width: 100%;
       min-height: 100vh;
+      background-color: #080808 !important;
       color: var(--text);
       font-family: "IBM Plex Sans", sans-serif;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      background-color: #080808;
     }
 
     .site {
@@ -46,6 +59,7 @@
       min-height: 100vh;
       margin: 0 auto;
       padding: 38px 54px 56px;
+      background-color: #080808;
     }
 
     header {
