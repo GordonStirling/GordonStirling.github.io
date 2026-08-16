@@ -10,7 +10,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
   <link
-    href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500&family=Inter+Tight:wght@400;500;600&display=swap"
+    href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@300;400;500&family=Inter+Tight:wght@300;400;500;600&display=swap"
     rel="stylesheet"
   >
 
@@ -27,17 +27,30 @@
       box-sizing: border-box;
     }
 
-    html,
-    body {
+    html {
       margin: 0;
+      padding: 0;
+      width: 100%;
       min-height: 100%;
-      background: var(--background);
+      background-color: #080808 !important;
     }
 
     body {
+      margin: 0;
+      padding: 0;
+      width: 100%;
       min-height: 100vh;
+      background-color: #080808 !important;
       color: var(--text);
       font-family: "IBM Plex Sans", sans-serif;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      background-color: #080808;
     }
 
     .site {
@@ -46,6 +59,7 @@
       min-height: 100vh;
       margin: 0 auto;
       padding: 38px 54px 56px;
+      background-color: #080808;
     }
 
     header {
@@ -91,7 +105,7 @@
 
     .back-link {
       display: inline-block;
-      margin-bottom: 48px;
+      margin-bottom: 64px;
       font-family: "IBM Plex Mono", monospace;
       font-size: 12px;
       color: var(--muted);
@@ -105,53 +119,64 @@
     }
 
     .series-header {
-      max-width: 1020px;
-      margin-bottom: 88px;
+      max-width: 1100px;
+      margin: 0 auto 92px;
+      text-align: center;
     }
 
     .series-meta {
-      margin-bottom: 22px;
+      margin-bottom: 20px;
       font-family: "IBM Plex Mono", monospace;
       font-size: 12px;
       color: var(--muted);
       text-transform: uppercase;
-      letter-spacing: 0.09em;
+      letter-spacing: 0.1em;
     }
 
     .series-header h1 {
-      margin: 0 0 32px;
-      max-width: 980px;
+      margin: 0 0 20px;
       font-family: "Inter Tight", sans-serif;
-      font-size: clamp(56px, 6vw, 84px);
+      font-size: clamp(54px, 6vw, 82px);
       font-weight: 500;
       line-height: 0.96;
-      letter-spacing: -0.045em;
+      letter-spacing: -0.04em;
       text-transform: uppercase;
     }
 
     .series-header p {
-      margin: 0;
-      max-width: 900px;
+      margin: 0 auto;
+      max-width: 1020px;
       color: var(--muted);
-      font-size: 28px;
-      line-height: 1.4;
+      font-family: "IBM Plex Sans", sans-serif;
+      font-size: 30px;
+      font-weight: 300;
+      line-height: 1.35;
       letter-spacing: -0.02em;
+      text-transform: uppercase;
     }
 
-    .post-list {
+    .post-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
       border-top: 1px solid var(--line);
+      border-left: 1px solid var(--line);
     }
 
     .post {
-      display: grid;
-      grid-template-columns: 90px 1fr auto;
-      gap: 28px;
+      min-height: 290px;
+      padding: 42px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
       align-items: center;
-      min-height: 170px;
-      padding: 30px 0;
-      border-bottom: 1px solid var(--line);
+      text-align: center;
+
       color: var(--text);
       text-decoration: none;
+
+      border-right: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+
       transition: background-color 0.2s ease;
     }
 
@@ -160,16 +185,18 @@
     }
 
     .post-number {
+      margin-bottom: 22px;
       font-family: "IBM Plex Mono", monospace;
-      font-size: 12px;
+      font-size: 11px;
       color: var(--muted);
-      letter-spacing: 0.08em;
+      letter-spacing: 0.1em;
     }
 
     .post h2 {
-      margin: 0 0 12px;
+      margin: 0 0 18px;
+      max-width: 480px;
       font-family: "Inter Tight", sans-serif;
-      font-size: clamp(34px, 3.5vw, 48px);
+      font-size: clamp(34px, 3.3vw, 48px);
       font-weight: 500;
       line-height: 1;
       letter-spacing: -0.035em;
@@ -178,31 +205,23 @@
 
     .post p {
       margin: 0;
-      max-width: 720px;
+      max-width: 430px;
       color: var(--muted);
-      font-size: 17px;
+      font-size: 16px;
       line-height: 1.5;
     }
 
-    .post-arrow {
-      padding-right: 6px;
-      font-family: "IBM Plex Mono", monospace;
-      font-size: 18px;
-      color: var(--muted);
-    }
-
-    .coming-soon {
-      opacity: 0.46;
-    }
-
     .status {
-      display: inline-block;
-      margin-top: 13px;
+      margin-top: 22px;
       font-family: "IBM Plex Mono", monospace;
       font-size: 10px;
       color: var(--muted);
       text-transform: uppercase;
-      letter-spacing: 0.08em;
+      letter-spacing: 0.1em;
+    }
+
+    .coming-soon {
+      opacity: 0.48;
     }
 
     @media (max-width: 700px) {
@@ -225,7 +244,7 @@
       }
 
       .back-link {
-        margin-bottom: 38px;
+        margin-bottom: 46px;
       }
 
       .series-header {
@@ -233,23 +252,26 @@
       }
 
       .series-header h1 {
-        margin-bottom: 24px;
-        font-size: clamp(46px, 12vw, 64px);
+        margin-bottom: 14px;
+        font-size: clamp(44px, 12vw, 62px);
       }
 
       .series-header p {
-        font-size: 21px;
+        font-size: 20px;
+        line-height: 1.45;
+      }
+
+      .post-grid {
+        grid-template-columns: 1fr;
       }
 
       .post {
-        grid-template-columns: 44px 1fr 20px;
-        gap: 14px;
-        min-height: 145px;
-        padding: 26px 0;
+        min-height: 220px;
+        padding: 34px 24px;
       }
 
       .post h2 {
-        font-size: 30px;
+        font-size: 34px;
       }
 
       .post p {
@@ -290,16 +312,18 @@
         </div>
 
         <h1>
-          Adding Value as a Data Practitioner
+          ADDING VALUE AS A<br>
+          DATA PRACTITIONER
         </h1>
 
         <p>
-          Exploring how analytical work creates influence and adds value in the real world.
+          EXPLORING HOW ANALYTICAL WORK CREATES INFLUENCE<br>
+          AND ADDS VALUE IN THE REAL WORLD.
         </p>
 
       </div>
 
-      <div class="post-list">
+      <div class="post-grid">
 
         <a class="post" href="output-not-value.html">
 
@@ -307,19 +331,16 @@
             01
           </div>
 
-          <div>
-            <h2>Output ≠ Value</h2>
+          <h2>
+            Output ≠ Value
+          </h2>
 
-            <p>
-              Why producing an analytical output does not automatically mean we have created value.
-            </p>
-          </div>
-
-          <div class="post-arrow">
-            →
-          </div>
+          <p>
+            Why producing an analytical output does not automatically mean we have created value.
+          </p>
 
         </a>
+
 
         <a class="post" href="output-influence-value.html">
 
@@ -327,19 +348,16 @@
             02
           </div>
 
-          <div>
-            <h2>Output → Influence → Value</h2>
+          <h2>
+            Output → Influence → Value
+          </h2>
 
-            <p>
-              A practical way of thinking about how analytical outputs move from delivery into practice.
-            </p>
-          </div>
-
-          <div class="post-arrow">
-            →
-          </div>
+          <p>
+            A practical way of thinking about how analytical outputs move from delivery into practice.
+          </p>
 
         </a>
+
 
         <a class="post" href="purpose-over-data.html">
 
@@ -347,19 +365,16 @@
             03
           </div>
 
-          <div>
-            <h2>Purpose &gt; Data</h2>
+          <h2>
+            Purpose &gt; Data
+          </h2>
 
-            <p>
-              Why purpose helps us navigate complexity and identify the right problems to solve.
-            </p>
-          </div>
-
-          <div class="post-arrow">
-            →
-          </div>
+          <p>
+            Why purpose helps us navigate complexity and identify the right problems to solve.
+          </p>
 
         </a>
+
 
         <div class="post coming-soon">
 
@@ -367,40 +382,16 @@
             04
           </div>
 
-          <div>
-            <h2>Deliberate Value Creation</h2>
+          <h2>
+            Deliberate Value Creation
+          </h2>
 
-            <p>
-              A practical process for designing, refining and embedding analytical work with the people it is intended to support.
-            </p>
+          <p>
+            A practical process for designing, refining and embedding analytical work with the people it is intended to support.
+          </p>
 
-            <span class="status">Coming soon</span>
-          </div>
-
-          <div class="post-arrow">
-            —
-          </div>
-
-        </div>
-
-        <div class="post coming-soon">
-
-          <div class="post-number">
-            05
-          </div>
-
-          <div>
-            <h2>Evaluation</h2>
-
-            <p>
-              What happens after analytical practice becomes embedded: how we evaluate, maintain and improve it over time.
-            </p>
-
-            <span class="status">Coming soon</span>
-          </div>
-
-          <div class="post-arrow">
-            —
+          <div class="status">
+            Coming soon
           </div>
 
         </div>
