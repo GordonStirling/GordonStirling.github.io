@@ -18,7 +18,7 @@
     :root {
       --background: #080808;
       --text: #f3f1ec;
-      --muted: #b5b1aa;
+      --muted: #b8b5af;
       --nav: #dedbd5;
       --line: #292929;
     }
@@ -27,22 +27,29 @@
       box-sizing: border-box;
     }
 
-    html,
-    body {
+    html {
       margin: 0;
       min-height: 100%;
-      background: var(--background);
+      background-color: #080808;
     }
 
     body {
+      margin: 0;
+      min-height: 100vh;
+      min-height: 100dvh;
+      background-color: #080808;
       color: var(--text);
       font-family: "IBM Plex Sans", sans-serif;
     }
 
     .site {
+      width: 100%;
       max-width: 1080px;
+      min-height: 100vh;
+      min-height: 100dvh;
       margin: 0 auto;
       padding: 38px 48px 60px;
+      background-color: #080808;
     }
 
     header {
@@ -89,7 +96,7 @@
     }
 
     .intro h1 {
-      margin: 0 0 24px;
+      margin: 0 0 26px;
       max-width: 780px;
       font-family: "Inter Tight", sans-serif;
       font-size: clamp(50px, 5.8vw, 74px);
@@ -101,11 +108,11 @@
 
     .intro p {
       margin: 0;
-      max-width: 720px;
+      max-width: 760px;
       color: var(--muted);
-      font-size: 21px;
-      line-height: 1.55;
-      letter-spacing: -0.01em;
+      font-size: 24px;
+      line-height: 1.45;
+      letter-spacing: -0.015em;
     }
 
     .sections {
@@ -116,7 +123,7 @@
     }
 
     .sections a {
-      padding: 28px 24px 30px 0;
+      padding: 34px 26px 36px 0;
       color: var(--text);
       text-decoration: none;
       border-right: 1px solid var(--line);
@@ -124,7 +131,7 @@
 
     .sections a:nth-child(2),
     .sections a:last-child {
-      padding-left: 24px;
+      padding-left: 26px;
     }
 
     .sections a:last-child {
@@ -133,7 +140,7 @@
 
     .section-number {
       display: block;
-      margin-bottom: 15px;
+      margin-bottom: 16px;
       font-family: "IBM Plex Mono", monospace;
       font-size: 11px;
       color: var(--muted);
@@ -182,7 +189,7 @@
       }
 
       .intro p {
-        font-size: 18px;
+        font-size: 20px;
       }
 
       .sections {
@@ -192,7 +199,7 @@
       .sections a,
       .sections a:nth-child(2),
       .sections a:last-child {
-        padding: 24px 0;
+        padding: 26px 0;
         border-right: none;
         border-bottom: 1px solid var(--line);
       }
