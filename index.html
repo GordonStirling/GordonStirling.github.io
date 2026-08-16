@@ -169,26 +169,21 @@
 
     .contact-button {
       width: 100%;
-      padding: 30px 0;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
+      padding: 34px 0;
       background: none;
       border: 0;
       color: var(--text);
       cursor: pointer;
-      font-family: "IBM Plex Mono", monospace;
-      font-size: 14px;
-      letter-spacing: 0.06em;
+      text-align: center;
+      font-family: "Inter Tight", sans-serif;
+      font-size: 28px;
+      font-weight: 500;
+      letter-spacing: -0.02em;
       text-transform: uppercase;
     }
 
     .contact-button:hover {
       color: var(--muted);
-    }
-
-    .contact-arrow {
-      font-size: 20px;
     }
 
     .modal {
@@ -298,6 +293,7 @@
     }
 
     @media (max-width: 700px) {
+
       .site {
         padding: 26px 22px 40px;
       }
@@ -348,6 +344,11 @@
         margin-top: 60px;
       }
 
+      .contact-button {
+        font-size: 26px;
+        padding: 30px 0;
+      }
+
       .modal-panel {
         padding: 24px;
       }
@@ -360,18 +361,23 @@
   <div class="site">
 
     <header>
-      <div class="name">Gordon Stirling</div>
+
+      <div class="name">
+        Gordon Stirling
+      </div>
 
       <nav>
         <a href="writing.html">Writing</a>
         <a href="research.html">Research</a>
         <a href="about.html">About</a>
       </nav>
+
     </header>
 
     <main>
 
       <div class="intro">
+
         <h1>
           Making data useful<br>
           in practice.
@@ -381,6 +387,7 @@
           Writing about how data moves from analysis to understanding,
           decisions and practice.
         </p>
+
       </div>
 
       <div class="sections">
@@ -410,8 +417,7 @@
 
       <div class="contact-footer">
         <button class="contact-button" id="openContact">
-          <span>Contact</span>
-          <span class="contact-arrow">→</span>
+          Contact
         </button>
       </div>
 
@@ -420,6 +426,7 @@
   </div>
 
   <div class="modal" id="contactModal">
+
     <div class="modal-panel">
 
       <div class="modal-header">
@@ -444,11 +451,14 @@
           <textarea id="message" name="message"></textarea>
         </div>
 
-        <button class="send-button" type="submit">Send</button>
+        <button class="send-button" type="submit">
+          Send
+        </button>
 
       </form>
 
     </div>
+
   </div>
 
   <script>
