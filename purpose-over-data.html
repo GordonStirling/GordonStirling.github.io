@@ -208,40 +208,41 @@
       margin-bottom: 0;
     }
 
-    .purpose-questions {
-      max-width: 690px;
-      margin: 46px auto;
-      padding: 38px 20px;
-      border-top: 1px solid var(--line);
-      border-bottom: 1px solid var(--line);
+    .purpose-block {
+      max-width: 720px;
+      margin: 54px auto 50px;
       text-align: center;
     }
 
-    .purpose-questions p {
-      margin: 0 0 16px;
+    .purpose-block p {
+      margin: 0 0 20px;
       font-family: "Inter Tight", sans-serif;
-      font-size: clamp(24px, 2.3vw, 29px);
-      font-weight: 300;
-      font-style: italic;
+      font-size: clamp(25px, 2.3vw, 30px);
+      font-weight: 400;
       line-height: 1.25;
-      letter-spacing: -0.015em;
+      letter-spacing: -0.02em;
     }
 
-    .purpose-questions p:last-child {
+    .purpose-block p:first-child {
+      margin-bottom: 34px;
+    }
+
+    .purpose-block p:last-child {
       margin-bottom: 0;
     }
 
-    .purpose-questions strong {
+    .purpose-block strong {
       font-weight: 500;
     }
 
     .purpose-sequence {
-      margin: 42px auto 48px;
+      margin: 50px auto 54px;
+      color: var(--muted);
       font-family: "Inter Tight", sans-serif;
-      font-size: clamp(27px, 2.5vw, 32px);
+      font-size: clamp(23px, 2.1vw, 27px);
       font-weight: 400;
       line-height: 1.2;
-      letter-spacing: -0.02em;
+      letter-spacing: -0.015em;
     }
 
     .references {
@@ -392,19 +393,23 @@
         margin-bottom: 0;
       }
 
-      .purpose-questions {
-        margin: 38px auto;
-        padding: 30px 10px;
+      .purpose-block {
+        margin: 44px auto 42px;
       }
 
-      .purpose-questions p {
-        margin-bottom: 14px;
-        font-size: 23px;
+      .purpose-block p {
+        margin-bottom: 18px;
+        font-size: 24px;
+        line-height: 1.25;
+      }
+
+      .purpose-block p:first-child {
+        margin-bottom: 30px;
       }
 
       .purpose-sequence {
-        margin: 36px auto 40px;
-        font-size: 26px;
+        margin: 42px auto 46px;
+        font-size: 23px;
       }
 
       .references {
@@ -495,12 +500,12 @@
           How do we make sure we are solving the right problem?
         </p>
 
-        <p>
-          Start with <strong>Purpose</strong>.
-        </p>
 
+        <div class="purpose-block">
 
-        <div class="purpose-questions">
+          <p>
+            Start with <strong>Purpose</strong>.
+          </p>
 
           <p>
             <strong>Who</strong> are you trying to support?
