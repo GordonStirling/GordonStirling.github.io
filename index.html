@@ -27,21 +27,15 @@
       box-sizing: border-box;
     }
 
-    html {
+    html,
+    body {
       margin: 0;
-      padding: 0;
-      width: 100%;
       min-height: 100%;
-      background: #080808 !important;
+      background: var(--background);
     }
 
     body {
-      margin: 0;
-      padding: 0;
-      width: 100%;
       min-height: 100vh;
-      min-height: 100dvh;
-      background: #080808 !important;
       color: var(--text);
       font-family: "IBM Plex Sans", sans-serif;
     }
@@ -50,10 +44,8 @@
       width: 100%;
       max-width: 1220px;
       min-height: 100vh;
-      min-height: 100dvh;
       margin: 0 auto;
-      padding: 38px 54px 70px;
-      background: #080808;
+      padding: 38px 54px 56px;
     }
 
     header {
@@ -169,12 +161,143 @@
       background: #101010;
     }
 
-    .sections a:hover .section-number {
-      color: var(--nav);
+    .contact-footer {
+      margin-top: 96px;
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .contact-button {
+      width: 100%;
+      padding: 30px 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: none;
+      border: 0;
+      color: var(--text);
+      cursor: pointer;
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 14px;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .contact-button:hover {
+      color: var(--muted);
+    }
+
+    .contact-arrow {
+      font-size: 20px;
+    }
+
+    .modal {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 1000;
+      background: rgba(0, 0, 0, 0.78);
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+    }
+
+    .modal.open {
+      display: flex;
+    }
+
+    .modal-panel {
+      width: 100%;
+      max-width: 620px;
+      background: #0d0d0d;
+      border: 1px solid var(--line);
+      padding: 34px;
+    }
+
+    .modal-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 34px;
+    }
+
+    .modal-title {
+      margin: 0;
+      font-family: "Inter Tight", sans-serif;
+      font-size: 34px;
+      font-weight: 500;
+      text-transform: uppercase;
+    }
+
+    .close-button {
+      background: none;
+      border: 0;
+      color: var(--muted);
+      cursor: pointer;
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 18px;
+    }
+
+    .close-button:hover {
+      color: var(--text);
+    }
+
+    .form-group {
+      margin-bottom: 24px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 8px;
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 11px;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    input,
+    textarea {
+      width: 100%;
+      padding: 14px 0;
+      background: transparent;
+      border: 0;
+      border-bottom: 1px solid var(--line);
+      color: var(--text);
+      font-family: "IBM Plex Sans", sans-serif;
+      font-size: 17px;
+      outline: none;
+    }
+
+    input:focus,
+    textarea:focus {
+      border-bottom-color: var(--text);
+    }
+
+    textarea {
+      min-height: 120px;
+      resize: vertical;
+    }
+
+    .send-button {
+      margin-top: 12px;
+      padding: 14px 22px;
+      background: var(--text);
+      color: var(--background);
+      border: 0;
+      cursor: pointer;
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .send-button:hover {
+      opacity: 0.85;
     }
 
     @media (max-width: 700px) {
-
       .site {
         padding: 26px 22px 40px;
       }
@@ -220,8 +343,15 @@
       .sections a:last-child {
         border-bottom: none;
       }
-    }
 
+      .contact-footer {
+        margin-top: 60px;
+      }
+
+      .modal-panel {
+        padding: 24px;
+      }
+    }
   </style>
 </head>
 
@@ -230,23 +360,18 @@
   <div class="site">
 
     <header>
-
-      <div class="name">
-        Gordon Stirling
-      </div>
+      <div class="name">Gordon Stirling</div>
 
       <nav>
         <a href="writing.html">Writing</a>
         <a href="research.html">Research</a>
         <a href="about.html">About</a>
       </nav>
-
     </header>
 
     <main>
 
       <div class="intro">
-
         <h1>
           Making data useful<br>
           in practice.
@@ -256,7 +381,6 @@
           Writing about how data moves from analysis to understanding,
           decisions and practice.
         </p>
-
       </div>
 
       <div class="sections">
@@ -284,9 +408,74 @@
 
       </div>
 
+      <div class="contact-footer">
+        <button class="contact-button" id="openContact">
+          <span>Contact</span>
+          <span class="contact-arrow">→</span>
+        </button>
+      </div>
+
     </main>
 
   </div>
+
+  <div class="modal" id="contactModal">
+    <div class="modal-panel">
+
+      <div class="modal-header">
+        <h2 class="modal-title">Contact</h2>
+        <button class="close-button" id="closeContact">×</button>
+      </div>
+
+      <form id="contactForm">
+
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input id="name" name="name" type="text">
+        </div>
+
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input id="email" name="email" type="email">
+        </div>
+
+        <div class="form-group">
+          <label for="message">Message</label>
+          <textarea id="message" name="message"></textarea>
+        </div>
+
+        <button class="send-button" type="submit">Send</button>
+
+      </form>
+
+    </div>
+  </div>
+
+  <script>
+    const modal = document.getElementById("contactModal");
+    const openButton = document.getElementById("openContact");
+    const closeButton = document.getElementById("closeContact");
+    const form = document.getElementById("contactForm");
+
+    openButton.addEventListener("click", () => {
+      modal.classList.add("open");
+    });
+
+    closeButton.addEventListener("click", () => {
+      modal.classList.remove("open");
+    });
+
+    modal.addEventListener("click", (event) => {
+      if (event.target === modal) {
+        modal.classList.remove("open");
+      }
+    });
+
+    form.addEventListener("submit", (event) => {
+      event.preventDefault();
+      alert("The contact form will be connected in the next step.");
+    });
+  </script>
 
 </body>
 </html>
